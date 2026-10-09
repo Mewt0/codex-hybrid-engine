@@ -1,0 +1,29 @@
+# Database profile
+
+Scope: SQL, MySQL schema, queries and data integrity.
+
+```yaml
+name: database
+extends: null
+skills:
+  - mysql-database
+  - security-review
+context:
+  design: false
+  project_context: true
+quality:
+  require_query_review: true
+  destructive_statements_allowed: false
+```
+
+## Task routing
+
+Use for: queries, transactions, migrations, indexes, optimisation, integrity of
+game data, protection against repeated operations.
+
+## Definition of done
+
+- No unparameterized SQL and no destructive statement against real data.
+- Migration is reversible or the irreversibility is stated explicitly.
+- Affected existing rows are described.
+- `EXPLAIN` checked for queries touching large tables.

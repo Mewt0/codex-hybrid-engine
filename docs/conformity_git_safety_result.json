@@ -1,0 +1,42 @@
+[
+  {
+    "scenario": "1.3 rename and copy are parsed from real git plumbing",
+    "status": "PASS",
+    "evidence": "rename detected paths=['src/new.php', 'src/old.php']\nrc=0\ncopy detected paths=['src/a_copy.php']\nrc2=0"
+  },
+  {
+    "scenario": "1.3 quoted / escaped and spaced paths survive the parser",
+    "status": "PASS",
+    "evidence": "git diff produced quoted paths: False\nparsed paths=['dir with space/file one.php', 'dir with space/file-two.php', 'dir with space/файл три.php']\nexpected    =['dir with space/file one.php', 'dir with space/file-two.php', 'dir with space/файл три.php']\nrc=0"
+  },
+  {
+    "scenario": "1.3 Unicode filenames are not mangled",
+    "status": "PASS",
+    "evidence": "parsed paths=['инвентарь/предмет.php', '日本語/ファイル.js']\nexpected=['инвентарь/предмет.php', '日本語/ファイル.js']\nrc=0"
+  },
+  {
+    "scenario": "1.3 deletions and new files are both detected",
+    "status": "PASS",
+    "evidence": "parsed paths=['fresh.php', 'gone.php']\nrc=0"
+  },
+  {
+    "scenario": "1.3 untracked + dirty worktree are visible to the engine",
+    "status": "PASS",
+    "evidence": "changed_files=['app.js', 'untracked.js']\nis_clean=False\nrun status=ready_for_review\napply blocked on dirty worktree: True"
+  },
+  {
+    "scenario": "1.3 symlink in the project blocks agent execution",
+    "status": "PASS",
+    "evidence": "run status=failed\nerror='Project contains symlink; refusing agent execution: leak.txt'"
+  },
+  {
+    "scenario": "1.2A .hybrid/ never enters the change set",
+    "status": "PASS",
+    "evidence": "status=ready_for_review\nworktree changed=['app.js']"
+  },
+  {
+    "scenario": "1.2B an ignored dir is surfaced without a false failure",
+    "status": "PASS",
+    "evidence": "before=['dist/', 'node_modules/']\nafter =['dist/', 'node_modules/']\nnode_modules surfaced as one entry: True\ndist surfaced as one entry: True\nno path expanded deeper than the dir: True\nbounded, no truncation marker: True"
+  }
+]

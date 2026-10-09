@@ -1,0 +1,30 @@
+# Frontend profile
+
+Scope: HTML, CSS, JavaScript and game interfaces.
+
+```yaml
+name: frontend
+extends: null
+skills:
+  - beautiful-game-ui
+  - frontend-development
+  - browser-testing
+context:
+  design: true
+  project_context: true
+quality:
+  require_visual_qa: true
+  require_browser_states: [empty, loading, error, disabled]
+```
+
+## Task routing
+
+Use for: inventory grid, HUD, player panel, menus, item cards, notifications,
+modals, chat UI, forms, responsive layout, CSS and animation work.
+
+## Definition of done
+
+- Desktop, tablet and mobile layouts verified in a real browser.
+- All interactive states implemented, focus-visible included.
+- No console errors and no failed requests during the primary action.
+- Screenshots attached to the task result.

@@ -1,0 +1,42 @@
+[
+  {
+    "scenario": "1.1 happy path run->status->report->review->apply (mock, safe)",
+    "status": "PASS",
+    "evidence": "task=TASK-046940DA\nrun rc=0 status=['Status: ready_for_review']\nreview rc=0\nproject unchanged before apply: True\ngit status --porcelain empty: True -> ''\napply without --yes rc=1 (non-zero required: True)\nproject still unchanged after refused apply: True\napply --yes rc=0 -> content='export const value = \"FIXED\";'\nrepeat apply rc=1 (non-zero required: True)\nreport mentions review: True"
+  },
+  {
+    "scenario": "1.4 fast mode never writes the project before apply",
+    "status": "PASS",
+    "evidence": "run rc=0 task=TASK-8B66CBA6\nproject file unchanged: True\ngit status --porcelain: ''\nbare patch artifact exists: True"
+  },
+  {
+    "scenario": "1.2C tampered patch artifact is refused at apply",
+    "status": "PASS",
+    "evidence": "artifact sha256 before=821f151f073dd3a9\nartifact sha256 after =730703a3f36a85fb\napply rc=1 (non-zero required: True)\nerror mentions patch: True\nproject unchanged: True"
+  },
+  {
+    "scenario": "1.2C user edit after review blocks apply",
+    "status": "PASS",
+    "evidence": "apply rc=1 (non-zero required: True)\nrefusal reason present: True\nuser edit survived: True"
+  },
+  {
+    "scenario": "1.2A .hybrid internal state is never part of a task diff",
+    "status": "PASS",
+    "evidence": "diff mentions .hybrid/: False\ndiff files: ['+++ b/app.js']"
+  },
+  {
+    "scenario": "1.2 forbidden path .env is refused",
+    "status": "PASS",
+    "evidence": "validate_paths(.env) -> [('Architecture: forbidden path', 'FAIL')]\nrc=0"
+  },
+  {
+    "scenario": "1.2 max_files_changed is enforced",
+    "status": "PASS",
+    "evidence": "validate_paths(9 files) -> [('Architecture: max files', 'FAIL')]"
+  },
+  {
+    "scenario": "1.2B ignored dirs: unchanged node_modules does not FAIL",
+    "status": "PASS",
+    "evidence": "run rc=0 task=TASK-0381333A\nstatus rc=0\nstatus mentions node_modules: False"
+  }
+]

@@ -1,0 +1,30 @@
+providers:
+  codex:
+    enabled: true
+    timeout_seconds: 300
+  groq:
+    enabled: true
+    small_model: qwen/qwen3.8-27b
+    review_model: openai/gpt-oss-120b
+    timeout_seconds: 60
+deepseek_harness:
+  enabled: false
+  max_parallel_agents: 2
+  timeout_seconds: 180
+budget:
+  allow_paid_api: false
+  max_retries: 1
+  max_parallel_agents: 1
+architecture:
+  allow_new_dependencies: false
+  max_files_changed: 5
+  forbidden_paths:
+    - .env
+    - config/secrets/*
+    - tests/protected/*
+quality:
+  auto_merge: false
+  require_approval: true
+context:
+  allowed_files: []
+

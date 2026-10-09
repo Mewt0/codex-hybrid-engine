@@ -1,0 +1,56 @@
+# Fullstack game profile
+
+Scope: features that span interface, backend and database.
+
+```yaml
+name: fullstack-game
+extends: null
+skills:
+  - beautiful-game-ui
+  - frontend-development
+  - php-legacy
+  - mysql-database
+  - security-review
+  - browser-testing
+  - systematic-debugging
+context:
+  design: true
+  project_context: true
+quality:
+  require_visual_qa: true
+  require_security_pass: true
+  require_transaction_review: true
+```
+
+## Task routing
+
+Use for a complete game function, for example a new inventory system:
+
+```text
+inventory system
+      |
+   UI (HTML/CSS/JS)
+      |
+   PHP endpoint
+      |
+   SQL transaction
+      |
+ functional QA
+      |
+  browser QA
+      |
+    review
+```
+
+## Sequencing
+
+One agent may execute all steps sequentially. Parallel agents are allowed only
+for parts that are provably independent. When independence is unknown, run
+sequentially — an "Unknown" dependency is treated as dependent.
+
+## Definition of done
+
+- The full action chain verified: UI → request → PHP → SQL → response → UI.
+- Double submission cannot duplicate an item or currency.
+- Permissions checked server-side, not only hidden in the interface.
+- Functional and browser QA recorded, screenshots attached.

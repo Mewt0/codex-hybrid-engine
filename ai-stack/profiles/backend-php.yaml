@@ -1,0 +1,31 @@
+# Backend PHP profile
+
+Scope: server-side logic, endpoints, game mechanics on the PHP side.
+
+```yaml
+name: backend-php
+extends: null
+skills:
+  - php-legacy
+  - mysql-database
+  - security-review
+context:
+  design: false
+  project_context: true
+quality:
+  php_lint: true
+  require_security_pass: true
+```
+
+## Task routing
+
+Use for: PHP API and AJAX handlers, game mechanics, sessions, authorization,
+validation, error handling, legacy compatibility work.
+
+## Definition of done
+
+- Every changed PHP file passes `php -l`.
+- Input validated, permission checked, SQL parameterized.
+- Response shape unchanged for existing consumers, or the change is documented.
+- Multi-step state changes run in a transaction and tolerate double submission.
+- Security pass recorded in the task result.

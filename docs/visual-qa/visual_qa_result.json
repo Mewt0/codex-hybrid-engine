@@ -1,0 +1,82 @@
+[
+  {
+    "check": "PHP available",
+    "status": "PASS",
+    "evidence": "E:\\OSPanel\\modules\\php\\PHP_8.5.11\\php.exe"
+  },
+  {
+    "check": "agent-browser available",
+    "status": "PASS",
+    "evidence": "C:\\Users\\grut\\AppData\\Roaming\\npm\\agent-browser.CMD"
+  },
+  {
+    "check": "PHP dev server",
+    "status": "PASS",
+    "evidence": "http://127.0.0.1:8791"
+  },
+  {
+    "check": "inventory renders item cards",
+    "status": "PASS",
+    "evidence": "{\n  \"cards\": 4,\n  \"expected\": 4\n}"
+  },
+  {
+    "check": "viewport desktop 1440x900",
+    "status": "PASS",
+    "evidence": "{\n  \"screenshot\": \"inventory-desktop.png\",\n  \"bytes\": 69888,\n  \"w\": 1440,\n  \"sw\": 1440,\n  \"overflow\": false,\n  \"overflowing\": 0\n}"
+  },
+  {
+    "check": "viewport tablet 768x1024",
+    "status": "PASS",
+    "evidence": "{\n  \"screenshot\": \"inventory-tablet.png\",\n  \"bytes\": 62537,\n  \"w\": 768,\n  \"sw\": 768,\n  \"overflow\": false,\n  \"overflowing\": 0\n}"
+  },
+  {
+    "check": "viewport mobile 390x844",
+    "status": "PASS",
+    "evidence": "{\n  \"screenshot\": \"inventory-mobile.png\",\n  \"bytes\": 42149,\n  \"w\": 390,\n  \"sw\": 390,\n  \"overflow\": false,\n  \"overflowing\": 0\n}"
+  },
+  {
+    "check": "no page errors",
+    "status": "PASS",
+    "evidence": "(none)"
+  },
+  {
+    "check": "console clean",
+    "status": "PASS",
+    "evidence": "(none)"
+  },
+  {
+    "check": "rarity filter narrows the list",
+    "status": "PASS",
+    "evidence": "{\n  \"cards\": 1,\n  \"count\": \"1 предмет\"\n}"
+  },
+  {
+    "check": "search filter narrows the list",
+    "status": "PASS",
+    "evidence": "{\n  \"cards\": 1,\n  \"names\": [\n    \"Клёпаный щит\"\n  ]\n}"
+  },
+  {
+    "check": "empty state is explicit, not a blank grid",
+    "status": "PASS",
+    "evidence": "{\n  \"grid\": \"Ничего не найдено. Измените фильтры.\",\n  \"count\": \"\"\n}"
+  },
+  {
+    "check": "equip persists to PHP and shows in the UI",
+    "status": "PASS",
+    "evidence": "{\n  \"weapon\": {\n    \"id\": 1,\n    \"name\": \"Стальной клинок\",\n    \"rarity\": \"common\",\n    \"price\": 120,\n    \"type\": \"weapon\",\n    \"quantity\": 1,\n    \"equipped\": true\n  },\n  \"badge\": true\n}"
+  },
+  {
+    "check": "replayed request_key is idempotent",
+    "status": "PASS",
+    "evidence": "{\n  \"first\": {\n    \"s\": 200,\n    \"replayed\": false\n  },\n  \"second\": {\n    \"s\": 200,\n    \"replayed\": true\n  },\n  \"secondMsg\": \"Предмет уже использован\"\n}"
+  },
+  {
+    "check": "negative cases return the documented status codes",
+    "status": "PASS",
+    "evidence": "{\n  \"observed\": {\n    \"badCsrf\": 400,\n    \"missingItem\": 404,\n    \"useNonConsumable\": 409,\n    \"equipNonEquippable\": 409\n  },\n  \"expected\": {\n    \"badCsrf\": 400,\n    \"missingItem\": 404,\n    \"useNonConsumable\": 409,\n    \"equipNonEquippable\": 409\n  }\n}"
+  },
+  {
+    "check": "design/MASTER.md conformance (contrast, 44px, focus, motion)",
+    "status": "PASS",
+    "evidence": "{\n  \"bodyContrast\": 14.79,\n  \"buttonContrast\": 8.01,\n  \"touchTarget\": {\n    \"w\": 119,\n    \"h\": 44\n  },\n  \"focusVisible\": true,\n  \"reducedMotion\": true,\n  \"bodyBg\": \"rgb(14, 17, 22)\"\n}"
+  }
+]
